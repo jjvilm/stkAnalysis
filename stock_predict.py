@@ -10,7 +10,6 @@ date, bid, ask = np.loadtxt('GBPUSD1d.txt', unpack=True,
                             delimiter=',',
                             converters={0:mdates.strpdate2num('%Y%m%d%H%M%S')})
 
-
 def percentChange(startPoint, currentPoint):
     try:
         x = ((float(currentPoint)-startPoint)/abs(startPoint))*100.00
@@ -20,7 +19,6 @@ def percentChange(startPoint, currentPoint):
             return x
     except:
         return 0.000000001
-
 
 def patternStorage():
     patStartTime = time.time()
@@ -290,8 +288,6 @@ def patternRecognition():
                 accuracyArray.append(100)
             else:
                 accuracyArray.append(0)
- 
-
 
 def graphRawFX():
 
