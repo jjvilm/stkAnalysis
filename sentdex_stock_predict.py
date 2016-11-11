@@ -385,7 +385,7 @@ while toWhat < dataLength:
     currentPattern()
     patternRecognition()
     totalEnd = time.time()-totalStart
-    print accuracyArray
+    #print accuracyArray
     accuracyAverage = reduce(lambda x, y: x + y, accuracyArray) / len(accuracyArray)
     
     toWhat += 1
