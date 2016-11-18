@@ -6,18 +6,11 @@ import numpy as np
 from numpy import loadtxt
 import time
 
-
-
 totalStart = time.time()
 
 date,bid,ask = np.loadtxt('GBPUSD1d.txt', unpack=True,
                               delimiter=',',
                               converters={0:mdates.strpdate2num('%Y%m%d%H%M%S')})
-
-
-
-
-
 
 def percentChange(startPoint,currentPoint):
     try:
@@ -28,7 +21,6 @@ def percentChange(startPoint,currentPoint):
             return x
     except:
         return 0.0001
-
 
 def patternStorage():
     '''
@@ -146,7 +138,6 @@ def patternStorage():
     print len(performanceAr)
     print 'Pattern storing took:', endTime-startTime
 
-
 def currentPattern():
     mostRecentPoint = avgLine[-1]
 
@@ -217,8 +208,6 @@ def currentPattern():
     patForRec.append(cp29)
     patForRec.append(cp30)
 
-
-
 def graphRawFX():
     
     fig=plt.figure(figsize=(10,7))
@@ -236,9 +225,6 @@ def graphRawFX():
     plt.subplots_adjust(bottom=.23)
     plt.show()
 
-
-
-    
 def patternRecognition():
     ######
     predictedOutcomesAr = []
@@ -347,7 +333,6 @@ def patternRecognition():
                 accuracyArray.append(100)
             else:
                 accuracyArray.append(0)
-                
         #######
         #plt.scatter(40, realMovement, c='#54fff7',s=25)
         #plt.scatter(40, predictedAvgOutcome, c='#008db8',s=25)
@@ -355,15 +340,11 @@ def patternRecognition():
         #plt.grid(True)
         #plt.title('Pattern Recognition.\nCyan line is the current pattern. Other lines are similar patterns from the past.\nPredicted outcomes are color-coded to reflect a positive or negative prediction.\nThe Cyan dot marks where the pattern went.\nOnly data in the past is used to generate patterns and predictions.')
         #plt.show()
-            
-            
-
 
 dataLength = int(bid.shape[0])
 print 'data length is', dataLength
 allData = ((bid+ask)/2)
 toWhat = 55000
-
 
 avgLine = ((bid+ask)/2)
 patternAr = []
@@ -392,4 +373,3 @@ while toWhat < dataLength:
     samps +=1
     print 'Entire (18) processing took:',totalEnd,'seconds'
     print 'Backtested Accuracy is',str(accuracyAverage)+'% after',samps,'actionable trades'
-    

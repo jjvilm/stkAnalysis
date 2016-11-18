@@ -3,12 +3,12 @@ import matplotlib.pyplot as plt
 from sklearn import svm, preprocessing
 import pandas as pd
 from matplotlib import style
-style.use("ggplot")
-#style.use("dark_background")
+#style.use("ggplot")
+style.use("dark_background")
 
-def Build_Data_Set(features = ["DE Ratio",
-                                "Trailing P/E"]):
-    data_df = pd.DataFrame.from_csv("key_stats.csv")
+def Build_Data_Set(features = ["Open",
+                                "Adjusted Close"]):
+    data_df = pd.DataFrame.from_csv("YAHOO-SCTY.csv")
     X = np.array(data_df[features].values)#.tolist())
 
     y = (data_df["Status"]
